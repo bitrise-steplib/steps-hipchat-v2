@@ -1,0 +1,96 @@
+title: Send HipChat message
+summary: |-
+  Why bother sending a “done” or "." message to the HipChat room to notify your
+  team members that the build / deploy finished with success when Bitrise can
+  do it for you? Simply add the HipChat Step to your Workflow. And also you can
+  change the color of the message to make the chat a bit more hip.
+description: |-
+  Send a [HipChat](https://www.hipchat.com) message to a room.
+
+  **This Step requires a HipChat account.**
+  [Click here](https://www.hipchat.com) to sign in or sign up on HipChat, for free.
+website: https://github.com/bitrise-io/steps-hipchat
+source_code_url: https://github.com/bitrise-io/steps-hipchat
+support_url: https://github.com/bitrise-io/steps-hipchat/issues
+host_os_tags:
+  - osx-10.10
+type_tags:
+  - IM
+  - notification
+is_requires_admin_user: false
+is_always_run: true
+is_skippable: true
+deps:
+  brew:
+  - name: go
+toolkit:
+  go:
+    package_name: github.com/bitrise-steplib/steps-hipchat-v2
+inputs:
+  - auth_token:
+    opts:
+      title: HipChat Room Auth Token
+      description: |
+        This Step uses HipChat API v2, you can register a v2 Room Token at [https://www.hipchat.com/admin/rooms](https://www.hipchat.com/admin/rooms).
+      is_required: true
+  - room_id:
+    opts:
+      title: HipChat RoomID
+      description: |
+        You can get the *room id* of any HipChat room by selecting *Rooms > Summary > API ID*.
+      is_required: true
+  - from_name: Bitrise CI
+    opts:
+      title: "From Name"
+      description: |
+        The one which should be presented as the sender of the message.
+
+        *1 - 15 characters*
+      is_required: true
+  - from_name_on_error: Bitrise CI
+    opts:
+      title: "From Name - if the build failed"
+      description: |
+        **This option will be used if the build failed.** If you
+        leave this option empty then the default one will be use.
+
+        *1 - 15 characters*
+  - message: "Bitrise workflow run succeeded"
+    opts:
+      title: "The message you want to send"
+      is_required: true
+  - message_on_error: "Bitrise workflow run failed"
+    opts:
+      title: "The message you want to send - if the build failed"
+      description: |
+        **This option will be used if the build failed.** If you
+        leave this option empty then the default one will be used.
+  - color: green
+    opts:
+      title: Message Color
+      value_options:
+        - yellow
+        - red
+        - green
+        - purple
+        - gray
+        - random
+  - color_on_error: red
+    opts:
+      title: "Message Color - if the build failed"
+      description: |
+        **This option will be used if the build failed.** If you
+        leave this option empty then the default one will be used.
+      value_options:
+        - yellow
+        - red
+        - green
+        - purple
+        - gray
+        - random
+  - message_format: html
+    opts:
+     title: "The message format you want to set"
+     value_options:
+       - html
+       - text
