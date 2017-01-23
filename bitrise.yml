@@ -16,6 +16,7 @@ workflows:
     - go-tests
     steps:
     - path::./:
+        is_skippable: false
         title: On Success
         inputs:
         - auth_token: $AUTH_TOKEN
