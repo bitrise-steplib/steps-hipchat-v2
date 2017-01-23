@@ -1,4 +1,4 @@
-title: Send HipChat message
+title: Send HipChat room notification
 summary: |-
   Why bother sending a “done” or "." message to the HipChat room to notify your
   team members that the build / deploy finished with success when Bitrise can
@@ -9,9 +9,11 @@ description: |-
 
   **This Step requires a HipChat account.**
   [Click here](https://www.hipchat.com) to sign in or sign up on HipChat, for free.
-website: https://github.com/bitrise-io/steps-hipchat
-source_code_url: https://github.com/bitrise-io/steps-hipchat
-support_url: https://github.com/bitrise-io/steps-hipchat/issues
+
+  **This step uses HipChat API v2**
+website: https://github.com/bitrise-steplib/steps-hipchat-v2
+source_code_url: https://github.com/bitrise-steplib/steps-hipchat-v2
+support_url: https://github.com/bitrise-steplib/steps-hipchat-v2/issues
 host_os_tags:
   - osx-10.10
 type_tags:
@@ -23,6 +25,9 @@ is_skippable: true
 deps:
   brew:
   - name: go
+  apt_get:
+  - name: golang
+    bin_name: go
 toolkit:
   go:
     package_name: github.com/bitrise-steplib/steps-hipchat-v2
