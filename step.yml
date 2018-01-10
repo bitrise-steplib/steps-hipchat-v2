@@ -17,7 +17,6 @@ support_url: https://github.com/bitrise-steplib/steps-hipchat-v2/issues
 host_os_tags:
   - osx-10.10
 type_tags:
-  - IM
   - notification
 is_requires_admin_user: false
 is_always_run: true
@@ -117,7 +116,7 @@ inputs:
     opts:
      title: "The base url for the server to use"
      description: |
-       **Here you can define the server url to use. For basic hipchat
+       Here you can define the server url to use. For basic hipchat
        integration, leave the default value. For enterprise
        solutions, change this value.
      is_required: true
