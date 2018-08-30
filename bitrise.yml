@@ -12,6 +12,7 @@ workflows:
   # --- workflow to test this step
   test:
     before_run:
+    - audit-this-step
     - go-tests
     steps:
     - path::./:
@@ -100,3 +101,14 @@ workflows:
 
             go get -t -d ./...
             godep save ./...
+
+  # ----------------------------------------------------------------
+  # --- workflows to Share this step into a Step Library
+  audit-this-step:
+    steps:
+    - script:
+        inputs:
+        - content: |-
+            #!/bin/bash
+            set -ex
+            stepman audit --step-yml ./step.yml
