@@ -37,6 +37,7 @@ inputs:
       description: |
         This Step uses HipChat API v2, you can register a v2 Room Token at [https://www.hipchat.com/admin/rooms](https://www.hipchat.com/admin/rooms) or on your own server.
       is_required: true
+      is_sensitive: true
   - room_id:
     opts:
       title: HipChat RoomID
