@@ -75,15 +75,15 @@ inputs:
       title: "Notify if the build succeeded"
       is_required: true
       value_options:
-        - true
-        - false
+        - "true"
+        - "false"
   - notify_on_error: "true"
     opts:
       title: "Notify if the build failed"
       is_required: true
       value_options:
-        - true
-        - false
+        - "true"
+        - "false"
   - color: green
     opts:
       title: Message Color
